@@ -44,9 +44,34 @@
 			<H1>Head-to-Head</H1>
 			<div id="div_con5">방 만들기</div>
 			<!-- 버튼 눌렀을때 방 생성하는 페이지 만들기 -->
+			
+		<!-- Child 부분~~-->	
+    <br>
+    <b><font size="5" color="gray">자식창</font></b>
+    <br><br>
+ 
+    <input type="text" id="cInput"> <input type="button" value="전달하기" onclick="setParentText()">
+    <br><br>
+    <input type="button" value="창닫기" onclick="window.close()">
+		<!-- ~~ Child 부분 -->	
+			
+			
+			
 			<div id="div_con5">참가하기</div>
 			<!-- 버튼 눌렀을때 원하는 방 참가하는 기능 구현하기 -->
 		</div>
+
+
+
+
+<!-- Parent -->
+  <br>
+    <b><font size="5" color="gray">부모창</font></b>
+    <br><br>
+    <input type="button" value="자식창 열기" onclick="openChild()"><br>
+    전달할 값 : <input type="text" id="pInput">
+<!-- Parent -->
+
 
 
 
@@ -68,10 +93,8 @@
 		<div id="div_menu2">
 			<h1>Recent Meetings</h1>
 			<c:forEach items="${gamelist.gameInfos }" var="gameInfo">
-				<div id="div_con2">게임번호 #${gameInfo.id}<br/>
-				
-				${gameInfo.description}
-				
+				<div id="div_con2">게임번호 #${gameInfo.id}<br/>			
+				${gameInfo.description}							
 				</div>
 
 			</c:forEach>
@@ -91,13 +114,39 @@
 			</div>
 
 		</div>
-
-
-
-
 		contents here!
 	</div>
 </body>
+
+
+   <!-- Child -->
+ <script type="text/javascript">
+        function setParentText(){
+             opener.document.getElementById("pInput").value = document.getElementById("cInput").value
+        }
+   </script>
+<!-- Child -->
+
+
+<!-- Parent -->
+ <script type="text/javascript">
+    
+        var openWin;
+    
+        function openChild()
+        {
+            // window.name = "부모창 이름"; 
+            window.name = "parentForm";
+            // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+            openWin = window.open("gamelist",
+                    "childForm", "width=570, height=350, resizable = no, scrollbars = no");    
+        }
+ 
+   </script>
+<!-- Parent -->
+
+
+
 
 
 <style>
@@ -209,6 +258,52 @@
 #divIma {
 	text-align: center;
 }
+
+
+
+
+   /* Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+    
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%; /* Could be more or less, depending on screen size */                          
+        }
+        /* The Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+
+
+
+
+
+
 </style>
 <script src="Templating.js"></script>
 <!-- add script here! -->
