@@ -5,8 +5,6 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/config/root-context.xml</param-value>
 	</context-param>
-	<!-- root context.xml을 읽어옴 -->
-
 
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener
@@ -24,9 +22,6 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-	<!-- servlet-context.xml을 읽게 하며, servlet의 기능은 server를 실행할 때 톰캣을 연동시켜주는 기능 -->
-
-
 
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>

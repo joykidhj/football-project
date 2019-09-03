@@ -48,5 +48,37 @@ SELECT
 
 
 	
+	INSERT INTO game_info(
+		id,
+		status_code,
+		max_person_num,
+		max_team_num,
+		kind,
+		game_date,
+		duration,
+		name
+		)
+	VALUES (
+		9,
+		9,
+		9,
+		9,
+		9,
+		sysdate,
+		9,
+		'test name'
+	)
+	
+	select * from game_info
+	
+	select id,
+		status_code,
+		max_person_num,
+		max_team_num,
+		kind,
+		game_date,
+		duration,
+		name from game_info
+	
 	
 	

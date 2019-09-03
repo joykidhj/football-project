@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.sist.football.gamelist.model.dto.GameInfoParam;
@@ -13,15 +13,21 @@ import kr.co.sist.football.gamelist.model.dto.Gamelist;
 import kr.co.sist.football.gamelist.model.service.GamelistService;
 
 @Controller
-@RequestMapping("/gamelist")
+@RequestMapping(value="/gamelist", method = {RequestMethod.GET, RequestMethod.POST}
+
+)
 public class GamelistController {
 	private final static int MAX_PAGE_NUM = 5;
 	@Autowired
 	GamelistService gamelistService;
 
 	@GetMapping
-	public String gamelist(@RequestParam(name = "teamId", required = false, defaultValue = "-1") int teamId,
-			@RequestParam(name = "pageNum", required = false, defaultValue = "1") int pageNum, Model model) {
+	public String gamelist(@RequestParam
+			(name = "teamId", required = false, defaultValue = "-1") 
+	int teamId,
+			@RequestParam(
+					name = "pageNum", required = false, defaultValue = "1")
+	int pageNum, Model model) {
 		GameInfoParam gameInfoParam = new GameInfoParam();
 
 		gameInfoParam.setStartNum(pageNum);
@@ -33,4 +39,8 @@ public class GamelistController {
 
 		return "game/gamelist";
 	}
+	
+	
+	
+	
 }

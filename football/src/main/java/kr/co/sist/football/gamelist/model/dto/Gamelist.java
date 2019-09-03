@@ -2,6 +2,9 @@ package kr.co.sist.football.gamelist.model.dto;
 
 import java.util.List;
 
+import kr.co.sist.football.common.model.dto.GameInfo;
+import kr.co.sist.football.common.model.dto.TeamInfo;
+
 public class Gamelist {
 	private TeamInfo teamInfo;
 	private List<GameInfo> gameInfos;

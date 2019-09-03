@@ -1,7 +1,6 @@
-package kr.co.sist.football.gamelist.model.dto;
+package kr.co.sist.football.common.model.dto;
 
 public class TeamInfo {
-
 	private int id;
 	private String name;
 	private String logoPath;

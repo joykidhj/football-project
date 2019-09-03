@@ -10,24 +10,29 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <!-- css -->
-<link rel="stylesheet" type="text/css" href="default.css" />
+<link rel="stylesheet" type="text/css"
+	href="/resources/css/gamelist.css" />
+<link rel="stylesheet" type="text/css" href="/resources/css/default.css" />
+
+
+
+
+
 <!-- add css here! -->
+
+
+
+
 </head>
 <body>
-
 	<div class="container_body">
-
-
-
 		<div id="div_con" class="vertical-menu">
 			<!-- 헤더부분 -->
-
 			<select name="Location">
 				<option value="">Location</option>
 				<option value="서울">서울</option>
 				<option value="경기">경기</option>
 				<option value="인천">인천</option>
-
 			</select> <select name="Team">
 				<option value="">Team</option>
 				<option value="asnal">asnal</option>
@@ -36,96 +41,104 @@
 			</select>
 			<button type="button" class="btn">Calender</button>
 			<!--Calender버튼 눌렀을 때 승주형의 달력페이지로 가는 기능 구현하기 -->
-
 		</div>
-
-
+		
+		
 		<div id="div_con4" class="vertical-menu">
 			<H1>Head-to-Head</H1>
-			<div id="div_con5">방 만들기</div>
+			<div id="div_con5">방 생성하기 </div>
 			<!-- 버튼 눌렀을때 방 생성하는 페이지 만들기 -->
-			
-		<!-- Child 부분~~-->	
-    <br>
-    <b><font size="5" color="gray">자식창</font></b>
-    <br><br>
- 
-    <input type="text" id="cInput"> <input type="button" value="전달하기" onclick="setParentText()">
-    <br><br>
-    <input type="button" value="창닫기" onclick="window.close()">
-		<!-- ~~ Child 부분 -->	
 			
 			
 			
 			<div id="div_con5">참가하기</div>
 			<!-- 버튼 눌렀을때 원하는 방 참가하는 기능 구현하기 -->
 		</div>
+<!-- <<<<<<< HEAD -->
 
 
 
 
-<!-- Parent -->
-  <br>
-    <b><font size="5" color="gray">부모창</font></b>
-    <br><br>
-    <input type="button" value="자식창 열기" onclick="openChild()"><br>
-    전달할 값 : <input type="text" id="pInput">
-<!-- Parent -->
 
-
-
-
+<!-- =======
+>>>>>>> dev -->
 
 		<div id="div_menu" class="vertical-menu">
-
 			<h1>TeamInfo</h1>
-			<div id="div_con2">팀이름</br>${gamelist.teamInfo.name }</div>
-			<div id="div_con2">로고</br>${gamelist.teamInfo.logoPath }</div>
-			<div id="div_con2">정원</br>${gamelist.teamInfo.maxNum }</div>
-			<div id="div_con2">현원</br>${gamelist.teamInfo.presentNum  }</div>
-			<div id="div_con2">유니폼 색깔</br>${gamelist.teamInfo.uniformColorCode}</div>
-			<div id="div_con2">전력</br>${gamelist.teamInfo.strengthCode }</div>
-			<div id="div_con2">활동지역</br>${gamelist.teamInfo.location }</div>
-			<div id="div_con2">포메이션</br>${gamelist.teamInfo.formation }</div>
+			<div id="div_con2">
+				팀이름</br>${gamelist.teamInfo.name }</div>
+			<div id="div_con2">
+				로고</br>${gamelist.teamInfo.logoPath }</div>
+			<div id="div_con2">
+				정원</br>${gamelist.teamInfo.maxNum }</div>
+			<div id="div_con2">
+				현원</br>${gamelist.teamInfo.presentNum  }</div>
+			<div id="div_con2">
+				유니폼 색깔</br>${gamelist.teamInfo.uniformColorCode}</div>
+			<div id="div_con2">
+				전력</br>${gamelist.teamInfo.strengthCode }</div>
+			<div id="div_con2">
+				활동지역</br>${gamelist.teamInfo.location }</div>
+			<div id="div_con2">
+				포메이션</br>${gamelist.teamInfo.formation }</div>
 		</div>
-
-
+		
+		
+		
 		<div id="div_menu2">
 			<h1>Recent Meetings</h1>
 			<c:forEach items="${gamelist.gameInfos }" var="gameInfo">
-				<div id="div_con2">게임번호 #${gameInfo.id}<br/>			
-				${gameInfo.description}							
+<!-- <<<<<<< HEAD -->
+				<div id="div_con2">게임번호 #${gameInfo.id}								
+					 최대인원# ${gameInfo.maxPersonNum}<br />
+					  게임종류# ${gameInfo.kind}
+					   게임 팀 수 # ${gameInfo.maxTeamNum}<br />
+					  게임상태# ${gameInfo.statusCode}<br />
+					  게임날짜# ${gameInfo.gameDate}<br />
+					 게임시간 #${gameInfo.description }
+					 게임이름# ${gameInfo.name }
+					  
+					  
+					  
+<!-- >>>>>>> dev -->
+  
+
 				</div>
-
-			</c:forEach>
+			</c:forEach> 
 		</div>
+		 <br>
+    <b><font size="5" color="gray">Create Room</font></b>
+    <br><br>
+    <input type="button" value="방 만들기" onclick="openChild()"><br>
+        
+        게임 이름:<%=request.getParameter("name") %></br>
+        게임 상태:<%=request.getParameter("statusCode") %></br>
+        최대 인원 :<%=request.getParameter("maxPersonNum") %></br>
+        게임 종류:<%=request.getParameter("kind") %></br>
+        게임 팀 수:<%=request.getParameter("maxTeamNum") %></br>
+        날짜 : <%=request.getParameter("gameDate") %></br>
+        게임 시간: <%=request.getParameter("duration") %>
 
+       
+		
+		
+		
 		<div id="div_menu3" class="vertical-menu">
-
 			<div id="div_menu4">
 				<h1>Location</h1>
 				<div id="div_con6">구장사진</div>
 				<div id="div_con2">구장정보</div>
 				<div id="div_con2">오시는 길</div>
-				<div id="div_con2">test3</div>
-				<div id="div_con2">test4</div>
 				<img src="/images/ground.jpg" alt="">
-
 			</div>
-
 		</div>
-		contents here!
+<!-- <<<<<<< HEAD
+		contents here! -->
 	</div>
 </body>
 
 
-   <!-- Child -->
- <script type="text/javascript">
-        function setParentText(){
-             opener.document.getElementById("pInput").value = document.getElementById("cInput").value
-        }
-   </script>
-<!-- Child -->
+  
 
 
 <!-- Parent -->
@@ -138,11 +151,12 @@
             // window.name = "부모창 이름"; 
             window.name = "parentForm";
             // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-            openWin = window.open("gamelist",
+            openWin = window.open("createRoom",
                     "childForm", "width=570, height=350, resizable = no, scrollbars = no");    
         }
  
    </script>
+   
 <!-- Parent -->
 
 
@@ -263,7 +277,7 @@
 
 
    /* Modal (background) */
-        .modal {
+   /*      .modal {
             display: none; /* Hidden by default */
             position: fixed; /* Stay in place */
             z-index: 1; /* Sit on top */
@@ -306,6 +320,11 @@
 
 </style>
 <script src="Templating.js"></script>
+
+	</div>
+</body>
+<script src="/resources/js/Templating.js"></script>
+<!-- >>>>>>> dev -->
 <!-- add script here! -->
 <script>
 	window.onload = function() {

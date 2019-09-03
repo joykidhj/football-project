@@ -1,22 +1,27 @@
 package kr.co.sist.football.gamelist.model.dto;
 
-import java.sql.Date;
+import java.util.Date;
 
-public class GameRoom {
+public class CreateGame {
 	private int id;
+	private String name;
 	private int statusCode;
 	private int maxPersonNum;
 	private int kind;
 	private Date gameDate;
+	private int maxTeamNum;
 	private int duration;
-	private int maxnumTeam;
-	
-	
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public int getStatusCode() {
 		return statusCode;
@@ -42,23 +47,26 @@ public class GameRoom {
 	public void setGameDate(Date gameDate) {
 		this.gameDate = gameDate;
 	}
+	public int getMaxTeamNum() {
+		return maxTeamNum;
+	}
+	public void setMaxTeamNum(int maxTeamNum) {
+		this.maxTeamNum = maxTeamNum;
+	}
 	public int getDuration() {
 		return duration;
 	}
 	public void setDuration(int duration) {
 		this.duration = duration;
 	}
-	public int getMaxnumTeam() {
-		return maxnumTeam;
-	}
-	public void setMaxnumTeam(int maxnumTeam) {
-		this.maxnumTeam = maxnumTeam;
-	}
-	
 	@Override
 	public String toString() {
-		return "GameRoom [id=" + id + ", statusCode=" + statusCode + ", maxPersonNum=" + maxPersonNum + ", kind=" + kind
-				+ ", gameDate=" + gameDate + ", duration=" + duration + ", maxnumTeam=" + maxnumTeam + "]";
+		return "CreateGame [id=" + id + ", name=" + name + ", statusCode=" + statusCode + ", maxPersonNum="
+				+ maxPersonNum + ", kind=" + kind + ", gameDate=" + gameDate + ", maxTeamNum=" + maxTeamNum
+				+ ", duration=" + duration + "]";
 	}
+
+	
+	
 	
 }

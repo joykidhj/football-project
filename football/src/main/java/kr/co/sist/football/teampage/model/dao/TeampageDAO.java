@@ -1,28 +1,35 @@
-package kr.co.sist.football.gamelist.model.dao;
+package kr.co.sist.football.teampage.model.dao;
+
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import kr.co.sist.football.common.model.dto.GameInfo;
 import mybatis.config.MybatisConnector;
 
 @Repository
-public class GameRoomDao {
+public class TeampageDAO {
+
 	public MybatisConnector mybatisconnector;
-	
-	private final String namespace = "mybatis.mappers.GamelistMapper.";
+
+	private final String namespace = "mybatis.mappers.TeamPageMapper";
+
+	public TeampageDAO() {
+
+	}
 
 	@Autowired
-	private GameRoomDao(MybatisConnector mybatisconnector) {
+	public TeampageDAO(MybatisConnector mybatisconnector) {
 		this.mybatisconnector = mybatisconnector;
 	}
-	
-	
-	public int getCreateGame(GameInfo gameInfo) {
+
+	public int updateTeamId(Map<String, Integer> updateTeamIdMap) {
 		SqlSession sqlSession = mybatisconnector.sqlSession();
-		try { 
-			return sqlSession.insert(namespace + "insertGameRoom", gameInfo);
+
+		try {
+			return sqlSession.update(namespace + ".updateTeamId", updateTeamIdMap);
+
 		} finally {
 			sqlSession.close();
 		}
